@@ -6,8 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
+class Solution {
 public:
     // write here
 };
