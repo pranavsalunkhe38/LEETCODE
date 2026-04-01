@@ -1,6 +1,6 @@
 // LC: 3474 Lexicographically Smallest Generated String
 // Title: Lexicographically Smallest Generated String
-// Difficulty:
+// Difficulty: Hard
 // Date: 31 March 2026
 
 #include <bits/stdc++.h>
