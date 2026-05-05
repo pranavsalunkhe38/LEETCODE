@@ -3,9 +3,6 @@
 // Difficulty: Medium
 // Date: 05 May 2026
 
-#include <bits/stdc++.h>
-using namespace std;
-
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -20,31 +17,36 @@ class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
 
-        if(head == nullptr || head->next == nullptr){
+        if(head == nullptr || head->next == nullptr || k == 0){
             return head;
         }
 
-        vector<int> v;
-        ListNode* x = head;
+        ListNode* temp = head;
+        ListNode* tail = nullptr;
+        int n=0;
 
-        while(x != nullptr){
-            v.push_back(x->val);
-            x = x->next;
+        while(temp != nullptr){
+            n++;
+            tail = temp;
+            temp = temp->next;
         }
 
-        k = k % v.size();
+        k = k % n;
+        if(k == 0) return head;
+        tail->next = head;
+       
+        ListNode* newtail = head;
+        ListNode* newhead = nullptr;
+        // cout<<n-k<<endl;
 
-        reverse(v.begin(), v.end());
-        reverse(v.begin(), v.begin()+k);
-        reverse(v.begin()+k, v.end());
-
-        x = head;
-
-        for(int i=0; i < v.size(); i++, x = x->next){
-            x->val = v[i];
+        for(int i=0; i < n-k-1; i++){
+            newtail = newtail->next;
         }
+        newhead = newtail->next;
+        newtail->next = nullptr;
 
-        return head;
-        
+        return newhead;
+
+
     }
 };
