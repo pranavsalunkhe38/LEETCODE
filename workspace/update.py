@@ -89,7 +89,6 @@ if __name__ == '__main__':
     # save solution
     updateFiles("_".join(problem) + ".cpp")
     # execute git
-    time.sleep(5)
     executeGit(problem, today)
     
     pass
